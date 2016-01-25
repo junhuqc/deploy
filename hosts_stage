@@ -1,0 +1,2 @@
+[stage]
+162.219.6.53	hostname=stage	ansible_ssh_host=162.219.6.53	ansible_ssh_port=22	ansible_ssh_user=user	ansible_connection=ssh anssilbe_ssh_private_key_file=keys/stage.pem
