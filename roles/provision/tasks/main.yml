@@ -1,6 +1,6 @@
 ---
 
 - name: add public dev key on server
-  authorized_key: user={{ deploy_username }} key=keys/dev.pub
-
-- name: install python3 and remove python2
+  authorized_key: user=vagrant key="{{ item }}" state=present
+  with_file:
+    - keys/dev.pub
