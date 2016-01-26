@@ -14,7 +14,7 @@
   with_file:
     - keys/dev.pub
 
-- name: add public dev key on server
-  authorized_key: user=root key="{{ item }}" state=present
-  with_file:
-    - keys/dev.pub
+#- name: add public dev key on server
+#  authorized_key: user=root key="{{ item }}" state=present
+#  with_file:
+#    - keys/dev.pub
