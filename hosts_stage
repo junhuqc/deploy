@@ -1,2 +1,2 @@
 [stage]
-192.168.22.22	hostname=stage	ansible_ssh_host=192.168.22.22	ansible_ssh_port=22	ansible_ssh_user=vagrant ansible_ssh_pass=vagrant	ansible_connection=ssh
+104.233.91.170	hostname=stage	ansible_ssh_host=104.233.91.170	ansible_ssh_port=22	ansible_ssh_user=user	ansible_connection=ssh

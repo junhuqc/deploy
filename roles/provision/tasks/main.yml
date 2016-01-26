@@ -1,6 +1,20 @@
 ---
 
+
+- name: agent fowarding
+  lineinfile: dest=/etc/sudoers regexp="^Defaults.*env_keep"
+              insertafter="^Defaults.*secure_path"
+              line="Defaults        env_keep+=\"SSH_AUTH_SOCK\""
+
+- name: sudo without password
+  lineinfile: "dest=/etc/sudoers state=present line='ALL ALL=(ALL) NOPASSWD: ALL'"
+
 - name: add public dev key on server
-  authorized_key: user=vagrant key="{{ item }}" state=present
+  authorized_key: user=user key="{{ item }}" state=present
+  with_file:
+    - keys/dev.pub
+
+- name: add public dev key on server
+  authorized_key: user=root key="{{ item }}" state=present
   with_file:
     - keys/dev.pub

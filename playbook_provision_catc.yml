@@ -4,4 +4,5 @@
   gather_facts: no
   sudo: yes
   roles:
-    - provision
+    #- provision
+    - common
