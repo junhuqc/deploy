@@ -1,3 +1,13 @@
 ---
 
 - apt: update_cache=yes
+
+- apt: name=python state=absent
+
+- apt: name={{ item }} state=present
+  with_items:
+    - python3
+
+- get_url: url=https://bootstrap.pypa.io/get-pip.py dest=/tmp/get-pip.py
+
+- shell: python3 /tmp/get-pip.py
