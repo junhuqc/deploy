@@ -7,18 +7,19 @@
     dest=/tmp/erlangsolution.deb
 
 - name: install solution
-  apt: deb="/tmp/erlangsolution.deb" update_cache=yes
+  apt: deb="/tmp/erlangsolution.deb" state=present
+
+- file: path="/tmp/erlangsolution.deb" state=absent
 
 - name: install erlang
-  apt: name="{{ item }}" state=present
+  apt: name="{{ item }}" state=present update_cache=yes
   with_items:
     - erlang-nox
 
 ## Install rebar3
-
 - name: download rebar3
   get_url:
     url="https://s3.amazonaws.com/rebar3/rebar3"
-    dest=/usr/bin/rebar
+    dest=/usr/bin/rebar3
 
-- shell: chmod +x /usr/bin/rebar
+- shell: chmod +x /usr/bin/rebar3
