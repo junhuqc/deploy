@@ -1,0 +1,2 @@
+[stage]
+104.233.91.170	hostname=stage	ansible_ssh_host=104.233.91.170	ansible_ssh_port=22	ansible_ssh_user=user	ansible_connection=ssh

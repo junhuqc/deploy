@@ -1,0 +1,24 @@
+---
+
+## Install erlang
+- name: erlang solution 
+  get_url:
+    url="http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb"
+    dest=/tmp/erlangsolution.deb
+
+- name: install solution
+  apt: deb="/tmp/erlangsolution.deb" update_cache=yes
+
+- name: install erlang
+  apt: name="{{ item }}" state=present
+  with_items:
+    - erlang-nox
+
+## Install rebar3
+
+- name: download rebar3
+  get_url:
+    url="https://s3.amazonaws.com/rebar3/rebar3"
+    dest=/usr/bin/rebar
+
+- shell: chmod +x /usr/bin/rebar
