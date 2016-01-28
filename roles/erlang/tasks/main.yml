@@ -9,8 +9,6 @@
 - name: install solution
   apt: deb="/tmp/erlangsolution.deb" state=present
 
-- file: path="/tmp/erlangsolution.deb" state=absent
-
 - name: install erlang
   apt: name="{{ item }}" state=present update_cache=yes
   with_items:
