@@ -2,6 +2,10 @@
 --------------------------
 
 
+## TODO: 
+
+1. add known_hosts on server for github
+
 
 ## Project ebot
 

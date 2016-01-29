@@ -8,10 +8,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # IF USING A PRE-BUILT IMAGE REMOVE THIS LINE
-  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+  #config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
   #config.vm.host_name = "vagrant"
   config.vm.network :private_network, ip: "192.168.22.22"
+
+  #sync folder
+  config.vm.synced_folder "/home/jh/projects/agendo/walleye", "/var/www/walleye", type: "nfs"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
