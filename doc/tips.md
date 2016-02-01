@@ -4,8 +4,8 @@
 * Generate PEM key
 
   ```bash
-  $ openssl genrsa -des3 -out dev.pem 1024 (pass phrase encrypted)
-  $ openssl genrsa -out dev.pem 1024
+  $ openssl genrsa -des3 -out dev.pem 2048 (pass phrase encrypted)
+  $ openssl genrsa -out dev.pem 2048
   ```
 
 * Output public key for SSH
