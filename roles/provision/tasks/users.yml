@@ -1,0 +1,21 @@
+---
+
+- group: name={{ item.username }} state=present
+  with_items: "{{ Users }}"
+
+- name: create a user
+  user: name={{ item.username }} state=present group={{ item.username }} shell=/bin/bash groups=sudo,docker,adm
+  with_items: "{{ Users }}"
+
+- name: passwordless sudo for user
+  lineinfile: "dest=/etc/sudoers state=present regexp='^%wheel' line='{{ item.username }} ALL=(ALL) NOPASSWD: ALL'"
+  with_items: "{{ Users }}"
+
+- name: add public prod key on ec2 instance
+  authorized_key: user={{ item.username }} key="{{ lookup('file', '{{ item.publicfile }}') }}" path='/etc/ssh/authorized_keys/{{ item.username }}' manage_dir=no
+  register: ress
+  ignore_errors: yes
+  with_items: "{{ Users }}"
+
+
+- debug: msg={{ ress }}

@@ -1,0 +1,7 @@
+---
+
+Users:
+  - username: onesname
+    publicfile: files/users/onesname.pub
+  - username: othername
+    publicfile: files/users/othername.pub
